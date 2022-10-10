@@ -1,38 +1,29 @@
-# create-svelte
+# Svelte Organize Imports Loop
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This is a minimal reproduction of a bug causing "organize imports" to loop forever.
 
-## Creating a project
+> [Discord thread](https://discord.com/channels/457912077277855764/1028066996341968936)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Steps to reproduce
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+1. Clone this repo `git@github.com:The-Noah/svelte-organize-imports-loop.git`
+2. Run `npm install`
+3. Open `src/App.svelte` in VS Code
+4. Run `Organize Imports` command
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+To break out of the loop, open `.vscode/settings.json`.
 
-## Developing
+> 💡 This seems to only happen when `source.organizeImports` is set to `true` in `settings.json`. It is then triggered by the `Organize Imports` command or saving.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Steps taken to create this repo
 
-```bash
-npm run dev
+1. Add `source.organizeImports` to `.vscode/settings.json`
+2. Install Svelte for VS Code extension
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## Environment
 
-## Building
+Below is my environment, I have not tested this on other environments.
 
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- Svelte for VS Code v106.2.0
+- VS Code 1.73.0-insider
+- Windows 11
