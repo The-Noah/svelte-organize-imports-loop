@@ -2,7 +2,7 @@
 
 This is a minimal reproduction of a bug causing "organize imports" to loop forever.
 
-> [Discord thread](https://discord.com/channels/457912077277855764/1028066996341968936)
+[Discord thread](https://discord.com/channels/457912077277855764/1028066996341968936) - [Diff from starter template](https://github.com/The-Noah/svelte-organize-imports-loop/commit/bc386d0efac5a4541efc2b42e4adb2f7accdbd33)
 
 ## Steps to reproduce
 
